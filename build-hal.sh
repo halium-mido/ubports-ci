@@ -6,7 +6,7 @@ source build/envsetup.sh
 breakfast $DEVICE
 export USE_HOST_LEX=yes
 make -j$(nproc) mkbootimg
-make -j$(nproc) halium-boot
+make -j$(nproc) hybris-boot
 make -j$(nproc) systemimage 
 
 echo "md5sum halium-boot.img and system.img"
