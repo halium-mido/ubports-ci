@@ -46,7 +46,7 @@ jobs:
           /etc/php
         mkdir -p ~/bin
         wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
-        chmod +x ~/bin/repo
+        chmod a+x ~/bin/repo
         git config --global user.name "UBports Redmi Note 4 CI"
         git config --global user.email "thisemaildoesnotexist@exist.com"
 
@@ -55,7 +55,7 @@ jobs:
         source halium.env
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
-        python3 repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
+        python3 ~/bin/repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
         mkdir -p $ANDROID_ROOT/.repo/local_manifests
         wget https://raw.githubusercontent.com/ubports-mido/halium-devices/halium-7.1/manifests/"$VENDOR"_"$DEVICE".xml -O $ANDROID_ROOT/.repo/local_manifests/$DEVICE.xml
         repo sync -j8 -c --no-clone-bundle --no-tags
