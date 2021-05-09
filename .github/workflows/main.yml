@@ -58,8 +58,7 @@ jobs:
         repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
         mkdir -p $ANDROID_ROOT/.repo/local_manifests
         wget https://raw.githubusercontent.com/ubports-mido/halium-devices/halium-7.1/manifests/"$VENDOR"_"$DEVICE".xml -O $ANDROID_ROOT/.repo/local_manifests/$DEVICE.xml
-        python -c "import sys; print(sys.version)"
-        repo sync -j8 -c --no-clone-bundle --no-tags
+        python3 repo sync -j8 -c --no-clone-bundle --no-tags
     
     - name: Build HAL
       run: |
